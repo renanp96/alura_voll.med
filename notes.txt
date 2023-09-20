@@ -4,7 +4,7 @@ Annotations do Springboot:
 @GetMapping - Informa ao spring que o metodo é um endpoint é uma request GET.
 
 Termos Tecnicos:
-Data Transfer Object(DTO)
+Data Transfer Object(DTO) - Classe que representa o dados de entrada e saida enviados pela a API.
 Controller
 
 Features da Versão 17 do Java:
