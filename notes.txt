@@ -8,5 +8,6 @@ Data Transfer Object(DTO) - Classe que representa o dados de entrada e saida env
 Controller
 
 Features da Versão 17 do Java:
-Records - Classes imutaveis criada na versão 14 do Java, são muito utilizadas para reduzir a quantidade de codigo,
-            criando automaticamente os getters e setters da classe.
+Records -  é um recurso que permite representar uma classe imutável, contendo apenas atributos, construtor e métodos de leitura, de uma maneira muito simples e enxuta.
+            Esse tipo de classe se encaixa perfeitamente para representar classes DTO, já que seu objetivo é apenas representar dados que serão recebidos ou devolvidos
+            pela API, sem nenhum tipo de comportamento.
