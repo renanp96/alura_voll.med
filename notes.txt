@@ -10,6 +10,7 @@ Data Access Object(DAO) - Classes utilizadas na persistencia de dados, separando
 Controller - Classe que irá controlar a passagem dos dados e envia-los para a classe DTO.
 Java Persistence API (JPA) - descreve uma interface comum para frameworks de mapeamento objeto-relacional(ORM).
 Repository - O repositório é um mecanismo para encapsular armazenamento, recuperação e comportamento de pesquisa, que emula uma coleção de objetos.
+Bean Validation - Realiza a validação de campos do formulario, o Bean Validation é composto de um conjunto anotações e APIs do Java e do Spring Framework.
 
 Features da Versão 17 do Java:
 Records - é um recurso que permite representar uma classe imutável, contendo apenas atributos, construtor e métodos de leitura, de uma maneira muito simples e enxuta.
