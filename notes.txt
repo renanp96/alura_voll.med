@@ -5,7 +5,8 @@ Annotations do Springboot:
 
 Termos Tecnicos:
 Data Transfer Object(DTO) - Classe que representa o dados de entrada e saida enviados pela a API.
-Controller
+Controller - Classe que irá controlar a passagem dos dados e envia-los para a classe DTO.
+JPA -
 
 Features da Versão 17 do Java:
 Records -  é um recurso que permite representar uma classe imutável, contendo apenas atributos, construtor e métodos de leitura, de uma maneira muito simples e enxuta.
