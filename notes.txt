@@ -2,13 +2,16 @@ Annotations do Springboot:
 @RestController - Informa para o spring que a classe informada é um controlador de API Rest
 @RequestMapping - Insere uma extensão para o caminho da URL.
 @GetMapping - Informa ao spring que o metodo é um endpoint é uma request GET.
+@Lombok - Gera automaticamente os getters e setters de uma classe.
 
 Termos Tecnicos:
 Data Transfer Object(DTO) - Classe que representa o dados de entrada e saida enviados pela a API.
+Data Access Object(DAO) - Classes utilizadas na persistencia de dados, separando regras de negocio de regras de acesso do banco de dados.
 Controller - Classe que irá controlar a passagem dos dados e envia-los para a classe DTO.
-JPA -
+Java Persistence API (JPA) - descreve uma interface comum para frameworks de mapeamento objeto-relacional(ORM).
+Repository - O repositório é um mecanismo para encapsular armazenamento, recuperação e comportamento de pesquisa, que emula uma coleção de objetos.
 
 Features da Versão 17 do Java:
-Records -  é um recurso que permite representar uma classe imutável, contendo apenas atributos, construtor e métodos de leitura, de uma maneira muito simples e enxuta.
-            Esse tipo de classe se encaixa perfeitamente para representar classes DTO, já que seu objetivo é apenas representar dados que serão recebidos ou devolvidos
-            pela API, sem nenhum tipo de comportamento.
+Records - é um recurso que permite representar uma classe imutável, contendo apenas atributos, construtor e métodos de leitura, de uma maneira muito simples e enxuta.
+    Esse tipo de classe se encaixa perfeitamente para representar classes DTO, já que seu objetivo é apenas representar dados que serão recebidos ou devolvidos pela API,
+    sem nenhum tipo de comportamento.
