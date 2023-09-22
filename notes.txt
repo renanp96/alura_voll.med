@@ -1,7 +1,8 @@
 Annotations do Springboot:
-@RestController - Informa para o spring que a classe informada é um controlador de API Rest
+@RestController - Informa para o spring que a classe informada é um controlador de API Rest.
 @RequestMapping - Insere uma extensão para o caminho da URL.
-@GetMapping - Informa ao spring que o metodo é um endpoint é uma request GET.
+@GetMapping - Informa ao spring que o metodo é um endpoint é uma requisição GET.
+@PostMapping - Informa ao spring que o metodo é um endpoint é uma requisição POST.
 @Lombok - Gera automaticamente os getters e setters de uma classe.
 
 Termos Tecnicos:
@@ -11,6 +12,7 @@ Controller - Classe que irá controlar a passagem dos dados e envia-los para a c
 Java Persistence API (JPA) - descreve uma interface comum para frameworks de mapeamento objeto-relacional(ORM).
 Repository - O repositório é um mecanismo para encapsular armazenamento, recuperação e comportamento de pesquisa, que emula uma coleção de objetos.
 Bean Validation - Realiza a validação de campos do formulario, o Bean Validation é composto de um conjunto anotações e APIs do Java e do Spring Framework.
+Migrations - scripts ou codigos que descrevem as estruturas de um banco de dados e realizam seu versionamento, semelhante ao git.
 
 Features da Versão 17 do Java:
 Records - é um recurso que permite representar uma classe imutável, contendo apenas atributos, construtor e métodos de leitura, de uma maneira muito simples e enxuta.
