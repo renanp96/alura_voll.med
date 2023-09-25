@@ -26,4 +26,8 @@ Os códigos HTTP (ou HTTPS) possuem três dígitos, sendo que o primeiro dígito
     3XX: Redirecionamento – indica que algo mais precisa ser feito ou precisou ser feito para completar a solicitação;
     4XX: Erro do cliente – indica que a solicitação não pode ser concluída ou contém a sintaxe incorreta;
     5XX: Erro no servidor – o servidor falhou ao concluir a solicitação.
-Site explicativo: https://http.cat/
+
+Link uteis:
+Inicializador do projeto springboot: https://start.spring.io/
+Configurações do properties no spring: https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
+Requisições HTTP: https://http.cat/
