@@ -1,6 +1,7 @@
 Annotations do Springboot:
 @RestController - Informa para o spring que a classe informada é um controlador de API Rest.
 @RequestMapping - Insere uma extensão para o caminho da URL.
+@RestControllerAdvice - Indica para o spring que a classe irá manipular e exceptions durante a requisição Rest.
 @GetMapping - Informa ao spring que o metodo é um endpoint é uma requisição GET.
 @PostMapping - Informa ao spring que o metodo é um endpoint é uma requisição POST.
 @Lombok - Gera automaticamente os getters e setters de uma classe.
