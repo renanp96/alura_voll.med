@@ -18,3 +18,12 @@ Features da Versão 17 do Java:
 Records - é um recurso que permite representar uma classe imutável, contendo apenas atributos, construtor e métodos de leitura, de uma maneira muito simples e enxuta.
     Esse tipo de classe se encaixa perfeitamente para representar classes DTO, já que seu objetivo é apenas representar dados que serão recebidos ou devolvidos pela API,
     sem nenhum tipo de comportamento.
+
+Categoria de códigos HTTP:
+Os códigos HTTP (ou HTTPS) possuem três dígitos, sendo que o primeiro dígito significa a classificação dentro das possíveis cinco categorias.
+    1XX: Informativo – a solicitação foi aceita ou o processo continua em andamento;
+    2XX: Confirmação – a ação foi concluída ou entendida;
+    3XX: Redirecionamento – indica que algo mais precisa ser feito ou precisou ser feito para completar a solicitação;
+    4XX: Erro do cliente – indica que a solicitação não pode ser concluída ou contém a sintaxe incorreta;
+    5XX: Erro no servidor – o servidor falhou ao concluir a solicitação.
+Site explicativo: https://http.cat/
