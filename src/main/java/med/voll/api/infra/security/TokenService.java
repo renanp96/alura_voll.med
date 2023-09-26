@@ -18,7 +18,6 @@ public class TokenService {
     @Value("${api.security.token.secret}")
     private String secret;
     public String gerarToken(Usuario usuario){
-        System.out.println("Default secret: " + secret);
         try{
             var algoritimo = Algorithm.HMAC256(secret);
             return JWT.create()
