@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -26,10 +27,15 @@ public class AutenticacaoController {
 
     @PostMapping
     public ResponseEntity efetuarLogin(@RequestBody @Valid DadosAutenticacao dados) {
-        var tokenAuth = new UsernamePasswordAuthenticationToken(dados.login(), dados.password());
-        var auth = manager.authenticate(tokenAuth);
-        var tokenJWT = tokenService.gerarToken((Usuario) auth.getPrincipal());
+        try{
+            UsernamePasswordAuthenticationToken tokenAuth = new UsernamePasswordAuthenticationToken(dados.login(), dados.password());
+            Authentication auth = manager.authenticate(tokenAuth);
+            String tokenJWT = tokenService.gerarToken((Usuario) auth.getPrincipal());
 
-        return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
+            return ResponseEntity.ok(new DadosTokenJWT(tokenJWT));
+        } catch (Exception err){
+            err.printStackTrace();
+            return ResponseEntity.badRequest().body(err.getMessage());
+        }
     }
 }

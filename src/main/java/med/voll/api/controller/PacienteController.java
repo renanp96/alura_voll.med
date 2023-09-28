@@ -10,6 +10,8 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.util.UriComponentsBuilder;
 
+import java.net.URI;
+
 @RestController
 @RequestMapping("pacientes")
 public class PacienteController {
@@ -23,19 +25,19 @@ public class PacienteController {
         Paciente paciente = new Paciente(dados);
         repository.save(paciente);
 
-        var uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
+        URI uri = uriBuilder.path("/pacientes/{id}").buildAndExpand(paciente.getId()).toUri();
         return ResponseEntity.created(uri).body(new DadosDetalhamentoPaciente(paciente));
     }
     @GetMapping
     public ResponseEntity<Page<DadosListagemPaciente> > listar(Pageable paginacao){
-        var page = repository.findAll(paginacao).map(DadosListagemPaciente::new);
+        Page<DadosListagemPaciente> page = repository.findAll(paginacao).map(DadosListagemPaciente::new);
         return ResponseEntity.ok(page);
     }
 
     @PutMapping
     @Transactional
     public ResponseEntity atualizar(@RequestBody @Valid DadosAtualizacaoPaciente dados) {
-        var paciente = repository.getReferenceById(dados.id());
+        Paciente paciente = repository.getReferenceById(dados.id());
         paciente.atualizarInfos(dados);
 
         return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
@@ -44,21 +46,21 @@ public class PacienteController {
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity excluir(@PathVariable Long id){
-        var paciente = repository.getReferenceById(id);
+        Paciente paciente = repository.getReferenceById(id);
         paciente.excluir();
 
         return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 
     public ResponseEntity reativar(@PathVariable Long id){
-        var paciente = repository.getReferenceById(id);
+        Paciente paciente = repository.getReferenceById(id);
         paciente.reativar();
 
         return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 
     public ResponseEntity detalhar(@PathVariable Long id) {
-        var paciente = repository.getReferenceById(id);
+        Paciente paciente = repository.getReferenceById(id);
         return ResponseEntity.ok(new DadosDetalhamentoPaciente(paciente));
     }
 }
