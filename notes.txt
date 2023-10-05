@@ -6,6 +6,7 @@ Annotations do Springboot:
 @PostMapping - Informa ao spring que o metodo é um endpoint é uma requisição POST.
 @Lombok - Gera automaticamente os getters e setters de uma classe.
 @Bean - Anotação que expoem o retorno de um metodo no springboot.
+@Autowired - Instancia um objeto dentro de outra classe.
 
 Termos Tecnicos:
 Data Transfer Object(DTO) - Classe que representa o dados de entrada e saida enviados pela a API.
@@ -33,3 +34,23 @@ Link uteis:
 Inicializador do projeto springboot: https://start.spring.io/
 Configurações do properties no spring: https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html
 Requisições HTTP: https://http.cat/
+
+Padrão de Novas Funcionalidades no Spring:
+    -Controllers:
+        *Responsaveis por lidar com as requisições HTTP e gerenciar o fluxo de controle dos dados.
+        *Devem ser nomeadas de forma descritiva e representativa da funcionalidade que está sendo gerenciada.
+        *Logicas de nogocio devem ser evitada nos controllers.
+    -DTOs:
+        *Utilizados para transferir os dados entre a camada de apresentação(controllers) e a camada de serviço.
+        *Devem conter apenas os campos necessarios para a operação em questão, evitando o excesso de informação.
+        *Os nomes das DTOs devem ser claros e concisos, refletindo o contexto da operação.
+    -Entidades JPA:
+        *Representam os objetos que serão persistidos no banco de dados.
+        *As Entidades JPA devem representar apenas os dados, evitando regras de negocios complexas.
+        *O nome das entidade dever ser semelhantes as suas correspondentes tabelas no banco de dados.
+    -Repositories:
+        *Responsaveis por acessar o banco de dados e realizar interações com a Entidades JPA.
+        *O nome de um Repository deve ser semelhante a Entidade JPA no qua está associada, seguido pela palavra "Repository".
+    -Migrations:
+        *São scripts ou codigos que descrevem as estruturas do banco de dados e realizam o versionamento do mesmo.
+        *As migrations devem sempre criadas quando ocorrer uma alteração no modelo dos dados ou na estrutura do banco de dados.
