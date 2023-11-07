@@ -54,3 +54,5 @@ Padrão de Novas Funcionalidades no Spring:
     -Migrations:
         *São scripts ou codigos que descrevem as estruturas do banco de dados e realizam o versionamento do mesmo.
         *As migrations devem sempre criadas quando ocorrer uma alteração no modelo dos dados ou na estrutura do banco de dados.
+
+SprinDocs:
