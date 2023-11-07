@@ -10,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class AgendaDeConsultas {
@@ -30,22 +29,28 @@ public class AgendaDeConsultas {
     public AgendaDeConsultas() {
     }
 
-    public void agendar(DadosAgendamentoConsulta dados){
+    public DadosDetalhamentoConsulta agendar(DadosAgendamentoConsulta dados){
         if(!pacienteRepository.existsById(dados.idPaciente())){
-            throw new ValidacaoException("Id do paciente não encontrado...");
+            throw new ValidacaoException("Id do paciente informado não existe!");
         }
 
         if(dados.idMedico() != null && !medicoRepository.existsById(dados.idMedico())){
-            throw new ValidacaoException("Id do medico não encontrado...");
+            throw new ValidacaoException("Id do médico informado não existe!");
         }
 
-        validadores.forEach(validador -> validador.validar(dados));
+        validadores.forEach(v -> v.validar(dados));
 
-        Paciente paciente = pacienteRepository.getReferenceById(dados.idPaciente());
-        Medico medico = escolherMedico(dados);
-        Consulta consulta = new Consulta(medico, paciente, dados.data());
+        var paciente = pacienteRepository.getReferenceById(dados.idPaciente());
+        var medico = escolherMedico(dados);
 
+        if(medico == null){
+            throw new ValidacaoException("Medico indisponivel para a data informada!");
+        }
+
+        var consulta = new Consulta(medico, paciente, dados.data());
         consultaRepository.save(consulta);
+
+        return new DadosDetalhamentoConsulta(consulta);
     }
 
     private Medico escolherMedico(DadosAgendamentoConsulta dados) {

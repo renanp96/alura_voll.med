@@ -5,20 +5,22 @@ import med.voll.api.domain.consulta.ConsultaRepository;
 import med.voll.api.domain.consulta.DadosAgendamentoConsulta;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
 import java.time.LocalDateTime;
 
 @Component
-public class ValidadorPacienteSemConsulta implements ValidadorAgendamentoConsultas {
+public class ValidadorPacienteConsultaDia implements ValidadorAgendamentoConsultas {
+
     @Autowired
-    private ConsultaRepository repository;
+    private ConsultaRepository consultaRepository;
 
     public void validar(DadosAgendamentoConsulta dados){
         LocalDateTime primeiroHorario = dados.data().withHour(7);
         LocalDateTime ultimoHorario = dados.data().withHour(18);
-        boolean possuiOutraConsultaDia = repository.existsByPacienteIdData(dados.idPaciente(), primeiroHorario, ultimoHorario);
+        boolean pacienteOutraConsulta = consultaRepository.existsByPacienteIdAndDataBetween(dados.idMedico(), primeiroHorario, ultimoHorario);
 
-        if(possuiOutraConsultaDia){
-            throw new ValidacaoException("Paciente já possui uma consulta agendada neste dia.");
+        if (pacienteOutraConsulta){
+            throw new ValidacaoException("Paciente já possui uma consulta agendada no dia.");
         }
     }
 }

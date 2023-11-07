@@ -7,14 +7,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValidadorMedicoConsulta implements ValidadorAgendamentoConsultas {
+public class ValidadorMedicoOutroConsulta implements ValidadorAgendamentoConsultas{
+
     @Autowired
-    private ConsultaRepository repository;
+    private ConsultaRepository consultaRepository;
 
     public void validar(DadosAgendamentoConsulta dados){
-        boolean medicoPossuiConsulta = repository.existsByMedicoIdData(dados.idMedico(), dados.data());
-        if(medicoPossuiConsulta){
-            throw new ValidacaoException("Medico já possui consulta agendada nesse mesmo horario");
+        boolean medicoPossuiOutraConsulta = consultaRepository.existsByMedicoIdAndData(dados.idMedico(), dados.data());
+
+        if(medicoPossuiOutraConsulta){
+            throw new ValidacaoException("Medico já possui outra consulta agendada nesse mesmo horario.");
         }
     }
 }

@@ -7,14 +7,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class ValidadorPacienteAtivo implements ValidadorAgendamentoConsultas {
+public class ValidadorPacienteAtivo {
+
     @Autowired
-    private PacienteRepository repository;
+    private PacienteRepository pacienteRepository;
 
     public void validar(DadosAgendamentoConsulta dados){
-        boolean pacienteAtivo = repository.findByPacienteAtivo(dados.idPaciente());
+        Boolean pacienteAtivo = pacienteRepository.findAtivoById(dados.idPaciente());
         if(!pacienteAtivo){
-            throw new ValidacaoException("Consulta não pode ser efetuada com um paciente inativo.");
+            throw new ValidacaoException("Consulta não pode ser agendada com paciente inativo.");
         }
     }
 }
