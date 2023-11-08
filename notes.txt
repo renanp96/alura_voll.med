@@ -56,3 +56,7 @@ Padrão de Novas Funcionalidades no Spring:
         *As migrations devem sempre criadas quando ocorrer uma alteração no modelo dos dados ou na estrutura do banco de dados.
 
 SprinDocs:
+
+Testes Automatizados:
+@DataJpaTest: utilizada para testar componentes na camada de persistencia da aplicação, ou seja, interfaces repository
+que atuam realizando queries dentro da aplicação.
